@@ -45,6 +45,11 @@ export default {
                 title: 'URL',
                 name: 'href',
                 type: 'url'
+              },{
+                title: 'Open in a blank page',
+                name: 'blank',
+                type: 'boolean',
+                default: true
               }
             ]
           }
