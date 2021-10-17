@@ -6,6 +6,11 @@ import localeBlockContent from './types/localeBlockContent'
 import localeText from './types/localeString'
 import blockContent from './types/blockContent'
 
+import recipe from './recipe'
+import tag from './tag'
+import unit from './unit'
+import ingredient from './ingredient'
+import category from './category'
 
 export default createSchema({
   name: 'default',
@@ -13,5 +18,11 @@ export default createSchema({
     localeText,
     localeBlockContent,
     blockContent,
+
+    category,
+    unit,
+    ingredient,
+    tag,
+    recipe,
   ])
 })

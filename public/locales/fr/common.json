@@ -1,0 +1,47 @@
+{
+    "intro1": "Mon nom est Remi Martel et je suis étudiant au Bac en informatique et génie logiciel de l'Université du Québec à Montréal (<1>UQAM</1>). J'ai principalement travaillé en développement web jusqu'à présent, mais je suis très intéressé par le développement de jeux vidéo et le DevOps. ",
+    "intro2": "En ce moment je travaille à distance pour la compagnie <1>Nightborn</1> , une agence de développement à Bruxelles en Belgique en tant que développeur Dotnet Core et Node.Js. ",
+    "intro3": "À ce jour, j'ai travaillé pour le département d'informatique de l'UQAM, pour <1>l'agence spatiale canadienne</1> (CSA) et pour <3>Les Pros de la Photo</3> à Montréal. ",
+    "intro4": "À l'agence spatiale canadienne, j'ai appris à travailler avec Unity et la réalité augmenté (AR). J'y ai implanté des commandes vocales et gestuelles pour le simulateur de la Station Spatiale Internationale sur le Hololens de Microsoft. Durant mes autres expériences professionnelles, j'ai majoritairement utilisé C# et ASP.NET core. ",
+    "intro5": "Chaque année, Je travaille volontairement pour plusieurs conventions à Montréal. Depuis 2016, j'occupe le poste de directeur du LAN à l'<1>Otakuthon</1> où j'y gère une équipe de volontaires et où j'y organise tous les aspect du département de LAN gaming. ",
+    "intro6": "Par la suite, j'ai décidé de devenir volontaire pour <1>Dreamhack Montreal</1> et le <3> LAN ETS</3>. ",
+    "intro7": "Durant ces deux évênements, j'aide à la construction des installations et je fais partie de l'équipe de support technique. J'ai également commencé à travailler pour le département de logistique de Dreamhack. ",
+    "intro8": "En 2018, j'ai reçu mon DEC technique en informatique du <1>Champlain College Saint-Lambert</1>. ",
+    "intro9": "Ensuite j'ai commencé l'université en génie logiciel à l'<1>ETS</1>. ",
+    "intro10": "Un an plus tard, j'ai décidé de poursuivre mes études à l'UQAM, car je trouvais le programme de l'ETS pas assez technique pour moi. Présentement je devrais graduer en mai 2022. ",
+
+    "uqam_educ_title":"Bac. en informatique et génie logiciel",
+    "uqam_educ_subTitle": "Université du Québec à Montréal (UQAM) et École de technologie supérieure (ETS)",
+    "uqam_educ_date": "Sept. 2018 – Présent",
+    "champlain_educ_title": "DEC en informatique",
+    "education_uqam_desc": "Université du Québec, Montreal<1><0>Cours d'intro. au japonais</0></1>",
+    "education_champlain_desc": "Champlain College Saint-Lambert, Québec<1><0>Lettres d’honneur pour avoir conservé mes notes au-dessus de 80% durant mes deux dernières sessions</0></1>",
+
+    "nightborn_job_title": "Développeur backend",
+    "nightborn_job_subTitle": "Nightborn, agence de développement - Bruxelles, Belgique",
+    "nightborn_job_date": "Fev. - Présent",
+    "nightborn_job_type": "Contrat",
+    "experience_nightborn_desc": "<0><0>Développement de fonctionnalités backend èa travers plusieurs projets Dotnet core et Node.Js</0><1>Implémentation de test unitaires en Dotnet core.</1></0>",  
+
+    "uqam_job_title": "Programmeur analyste junior",
+    "uqam_job_subTitle": "Université du Québec à Montréal - Montréal",
+    "uqam_job_date": "août - jan. 2020",
+    "uqam_job_type": "contrat",
+    "experience_uqam_desc": "<0><0>Développement d’une application web en C# .NET Core pour la gestion des archives.</0><1>Déploiement de cette application avec un pipeline CI/CD en utilisant Docker, Jenkins, Kubernetes et un peu de Helm.</1><2></2></0>",
+
+    "csa_job_title": "Ingénieur logiciel stagiaire",
+    "csa_job_subTitle": "Agence Spatiale Canadienne - Saint-Hubert",
+    "csa_job_date": "jan. - avr. 2019",
+    "csa_job_type": "stage",
+    "experience_csa_desc": "<0><0>Développement d’une application AR pour le HoloLens de Microsoft avec l’engin Unity3D</0><1>Implémentation d’une interface AMQP pour communiquer entre le casque AR et le simulateur de l’ISS</1><2>Développement d’un banc de test pour l’interface AMQP</2></0>",
+
+    "pros_job_title": "Programmeur analyste junior",
+    "pros_job_subTitle": "Les Pros de la Photo - Montréal",
+    "pros_job_date": "jan. - août 2018",
+    "pros_job_type": "stage",
+    "experience_pros_desc": "<0><0>Développer des nouveaux modules pour le CMS (Umbraco)</0><1>Maintenir et ajouter des pages sur les différents sites</1><2>Tester la qualité du code</2></0>",
+
+    "about": "introduction",
+    "experience": "expérience",
+    "education": "éducation"
+}
