@@ -4,6 +4,11 @@ export default {
     type: 'document',
     fields: [
       {
+        name: 'cms_title',
+        title: 'Title (cms only)',
+        type: 'string',
+      },
+      {
         name: 'title',
         title: 'Title',
         type: 'localeString',
@@ -14,10 +19,25 @@ export default {
         type: 'localeString',
       },
       {
-        name: 'labels',
-        title: 'Type',
+        name: 'servings',
+        title: 'Servings',
+        type: 'string',
+      },
+      {
+        name: 'time',
+        title: 'Preparation time (in min.)',
+        type: 'number',
+      },
+      {
+        name: 'tags',
+        title: 'Tags',
         type: 'array',
-        of: [{type: 'reference', to: {type: 'label'}}]
+        of: [{type: 'tag'}]
+      },
+      {
+        name: 'categories',
+        title: 'Category',
+        type: 'reference', to: {type: 'category'}
       },
       {
         name: 'ingredients',

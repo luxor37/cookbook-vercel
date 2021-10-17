@@ -4,6 +4,11 @@ export default {
   type: 'object',
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+    },
+    {
       name: 'name',
       title: 'Name',
       type: 'localeString',
@@ -11,7 +16,7 @@ export default {
     {
       name: 'quantity',
       title: 'Quantity',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'unit',
