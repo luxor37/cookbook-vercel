@@ -1,7 +1,7 @@
 import Page from "@/components/shared/page";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from "react";
-import { getRecipeById } from 'lib/api'
+import { getRecipeById, getRecipeIds } from 'lib/api'
 import Lang from "@/components/shared/lang";
 import imageUrlBuilder from '@sanity/image-url'
 import client from 'lib/sanity'
@@ -133,8 +133,12 @@ export async function getStaticProps({ locale, params }) {
 }
 
 export async function getStaticPaths() {
+    const ids = await getRecipeIds()
+    const paths = ids.map(({ _id }) => {
+        return { params: { recipe_id: _id } }
+    })
     return {
-        paths: [{ params: { recipe_id: 'bf56ba7b-6e69-46cf-bc3e-0d3339eeb647' } }],
+        paths: paths,
         fallback: true,
     }
 }
