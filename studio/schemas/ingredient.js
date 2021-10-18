@@ -21,8 +21,7 @@ export default {
     {
       name: 'unit',
       title: 'Unit',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'unit'}}]
+      type: 'reference', to: {type: 'unit'}
     },
   ],
 }
