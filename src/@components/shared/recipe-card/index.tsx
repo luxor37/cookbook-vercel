@@ -12,11 +12,12 @@ export default function RecipeCard({ _id="", title = "This is the recipe title",
     return (
         <div className={` ${className}`}>
             <Link href={"/recipe/"+_id}>
-                <div className="flex flex-row rounded-lg shadow-md m-5 p-3">
+                <div className="flex flex-row rounded-lg shadow-md md:m-5 m-1 p-3">
                     <div className="flex flex-1 flex-col ">
                         <div className="flex flex-1 flex-col flex-grow-0">
                             <h1 className=" text-primary font-bold"><Lang>{title}</Lang></h1>
                         </div>
+                        <img className="rounded-lg md:hidden flex" src={urlFor(image) + ""} />
                         <p className="inline-flex">
                             Servings: {servings}  &nbsp; - &nbsp;
                             <svg xmlns="http://www.w3.org/2000/svg" className=" h-7 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -28,7 +29,7 @@ export default function RecipeCard({ _id="", title = "This is the recipe title",
                             {tags.map(
                                 ({ name }) => {
                                     return (
-                                        <span className=" my-1 mx-1 bg-primary text-white px-2 rounded-full">
+                                        <span className=" my-1 mr-1 bg-primary text-white px-2 rounded-full">
                                             <Lang>{name}</Lang>
                                         </span>
                                     )
@@ -37,7 +38,7 @@ export default function RecipeCard({ _id="", title = "This is the recipe title",
 
                         </div>
                     </div>
-                    <img className="w-1/4 rounded-lg" src={urlFor(image) + ""} />
+                    <img className="w-1/4 rounded-lg md:flex hidden" src={urlFor(image) + ""} />
 
                 </div>
             </Link>
