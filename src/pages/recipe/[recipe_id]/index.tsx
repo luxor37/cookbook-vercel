@@ -14,7 +14,7 @@ const Recipe = ({ recipe }) => {
 
     const router = useRouter()
 
-    if (router.isFallback) {
+    if (router.isFallback || !recipe) {
         return <div>Loading...</div>
     }
     else 
@@ -83,7 +83,6 @@ const Recipe = ({ recipe }) => {
                                     <ul className=" ml-3 pl-0">
                                         {ingredients.map(
                                             ({ quantity, unit }) => {
-                                                console.log(unit)
                                                 return (
                                                     <li className="pb-3">
                                                         {quantity} <Lang>{unit.name}</Lang>
