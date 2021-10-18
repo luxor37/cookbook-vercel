@@ -126,6 +126,7 @@ export async function getStaticPaths() {
     return {
       paths: [
         '/recipe/[recipe_id]',
+        '/recipe/a346712c-7f19-44a0-9ce3-2f04b3e9e29c'
       ],
       fallback: 'blocking',
     }
