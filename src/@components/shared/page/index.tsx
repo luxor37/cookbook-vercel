@@ -10,7 +10,7 @@ export default function Page({ children, className = "" }) {
             </Head>
 
             <Navbar />
-            <div className=" mt-10 md:mx-80">
+            <div className=" mt-10 xl:mx-80 ">
                 {children}
             </div>
 

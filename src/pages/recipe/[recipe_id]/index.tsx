@@ -17,8 +17,7 @@ const Recipe = ({ recipe }) => {
     if (router.isFallback || !recipe) {
         return <div>Loading...</div>
     }
-    else 
-    {
+    else {
 
         const { t } = useTranslation('common');
 
@@ -34,11 +33,12 @@ const Recipe = ({ recipe }) => {
 
         return (
             <Page>
-                <div className="flex min-h-screen flex-row rounded-lg shadow-md m-5 p-3">
+                <div className="flex min-h-screen flex-row rounded-lg shadow-md md:m-5 m-2 p-3">
                     <div className="flex flex-1 flex-col ">
                         <div className="flex flex-1 flex-col flex-grow-0">
                             <h1 className=" text-primary font-bold"><Lang>{title}</Lang></h1>
                         </div>
+                        <img className="rounded-lg md:hidden flex" src={urlFor(picture) + ""} />
                         <p className="inline-flex">
                             Servings: {servings}  &nbsp; - &nbsp;
                             <svg xmlns="http://www.w3.org/2000/svg" className=" h-7 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,18 +65,28 @@ const Recipe = ({ recipe }) => {
                                 {t('Ingredients')} :
                             </h3>
                             <div className="flex flex-row ">
-                                <div className="flex flex-col text-right">
-                                    <ul >
+                                <table>
+                                    <tbody>
                                         {ingredients.map(
                                             ({ name, quantity, unit }) => {
                                                 const bullet = quantity != " " ? " :" : " "
                                                 return (
-                                                    <li className="pb-3">
-                                                        <Lang>{name}</Lang>{bullet}
-                                                    </li>
+                                                    <tr className="pb-3">
+                                                        <td className=" text-right pr-3">
+                                                            <Lang>{name}</Lang>{bullet}
+                                                        </td>
+                                                        <td>
+                                                            {quantity} <Lang>{unit.name}</Lang>
+                                                        </td>
+                                                    </tr>
                                                 )
                                             }
                                         )}
+                                    </tbody>
+                                </table>
+                                {/* <div className="flex flex-col md:text-right">
+                                    <ul >
+                                        
                                     </ul>
                                 </div>
                                 <div className="flex flex-col ">
@@ -91,7 +101,7 @@ const Recipe = ({ recipe }) => {
                                             }
                                         )}
                                     </ul>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -110,7 +120,7 @@ const Recipe = ({ recipe }) => {
                         </div>
                     </div>
 
-                    <div className="w-1/4">
+                    <div className="w-1/4 md:block hidden">
                         <img className=" rounded-lg" src={urlFor(picture) + ""} />
                     </div>
                 </div>
@@ -135,8 +145,9 @@ export async function getStaticProps({ locale, params }) {
 export async function getStaticPaths() {
     const ids = await getRecipeIds()
     const paths = ids.map(({ _id }) => ({
-        params: { recipe_id: _id  }
+        params: { recipe_id: _id }
     }))
+
     return {
         paths: paths,
         fallback: true,
