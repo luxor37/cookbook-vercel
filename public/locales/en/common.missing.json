@@ -3,5 +3,8 @@
   "appetizers": "appetizers",
   "main dishes": "main dishes",
   "desserts": "desserts",
-  "drinks": "drinks"
+  "drinks": "drinks",
+  "Ingredients": "Ingredients",
+  "Preparations": "Preparations",
+  "Preparation": "Preparation"
 }

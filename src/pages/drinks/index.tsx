@@ -1,47 +1,33 @@
 import Page from "@/components/shared/page";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from "react";
-import { NextSeo } from "next-seo";
-// import { getDishes } from 'lib/api'
+import { getCardByCategory } from 'lib/api'
+import RecipeCard from "@/components/shared/recipe-card";
 
 
-export default function Dishes(props) {
+export default function Drinks(props) {
+    return (
 
-	return (
-
-		<Page>
-			{props.dishes.map(
-                ({ _id, title, subtitle, graduation_date, description, logo }) => {
+        <Page>
+            {props.appetizers.map(
+                ({ _id, title, servings, time, tags, picture, source }) => {
                     return (
-                        // <EducationSection key={_id} image={urlFor(logo)}
-                        //     programTitle={translate(title)}
-                        //     subTitle={translate(subtitle)}
-                        //     date={translate(graduation_date)}
-                        // >
-
-                        //     <BlockContent
-                        //         blocks={translate(description)}
-                        //         serializers={{ list: list }}
-                        //         renderContainerOnSingleChild={true}
-                        //         {...client.config()}
-                        //     />
-                        // </EducationSection>
-						<>
-						</>
+                        <RecipeCard _id={_id} title={title} time={time} servings={servings}
+                            image={picture} tags={tags} />
                     )
                 }
             )}
-		</Page>
-	)
+        </Page>
+    )
 }
 
 export async function getStaticProps({ locale }) {
-	return {
-		props: {
-			// dishes: await getDishes(),
-			// locale,
-			// ...await serverSideTranslations(locale, ['common']),
-		},
-		revalidate: 5
-	}
+    return {
+        props: {
+            appetizers: await getCardByCategory("appetizers"),
+            locale,
+            ...await serverSideTranslations(locale, ['common']),
+        },
+        revalidate: 5
+    }
 }
