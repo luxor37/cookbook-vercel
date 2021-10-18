@@ -17,8 +17,8 @@ export async function getStaticProps({ locale }) {
 			// about: await getAbout(),
 			// allEducations: await getEducations(), 
 			// allJobs: await getJobs(),
-			// locale,
-			// ...await serverSideTranslations(locale, ['common']),
+			locale,
+			...await serverSideTranslations(locale, ['common']),
 		},
 		revalidate: 5
 	}
