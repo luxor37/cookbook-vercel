@@ -134,9 +134,9 @@ export async function getStaticProps({ locale, params }) {
 
 export async function getStaticPaths() {
     const ids = await getRecipeIds()
-    const paths = ids.map(({ _id }) => {
-        return { params: { recipe_id: _id } }
-    })
+    const paths = ids.map(({ _id }) => ({
+        params: { recipe_id: _id  }
+    }))
     return {
         paths: paths,
         fallback: true,
