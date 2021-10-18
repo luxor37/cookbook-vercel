@@ -24,7 +24,7 @@ export default function Drinks(props) {
 export async function getStaticProps({ locale }) {
     return {
         props: {
-            appetizers: await getCardByCategory("appetizers"),
+            appetizers: await getCardByCategory("drink"),
             locale,
             ...await serverSideTranslations(locale, ['common']),
         },
