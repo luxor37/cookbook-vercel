@@ -1,6 +1,8 @@
 {
   "name": "cms-sanity",
   "version": "1.0.0",
+  "author": "Remi Martel",
+  "license": "MIT",
   "scripts": {
     "dev": "next",
     "build": "npm run build:sanity && pwd && npm run build:web",
