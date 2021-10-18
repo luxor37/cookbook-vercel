@@ -134,8 +134,8 @@ export async function getStaticProps({ locale, params }) {
 
 export async function getStaticPaths() {
     return {
-        paths: [{ params: { recipe_id: 'a346712c-7f19-44a0-9ce3-2f04b3e9e29c' } }],
-        fallback: true,
+        paths: [],
+        fallback: 'blocking',
     }
 }
 
