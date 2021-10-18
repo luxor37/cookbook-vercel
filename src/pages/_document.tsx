@@ -10,7 +10,7 @@ class MyDocument extends Document {
         return (
             <Html lang="en" className="bg-page w-screen h-screen flex-1 flex flew-col">
                 <Head>
-                    {/* <link rel="shortcut icon" href="/favicon.ico" /> */}
+                    <link rel="shortcut icon" href="/favicon.ico" />
                 </Head>
                 <body className="w-full">
                     <Main />
