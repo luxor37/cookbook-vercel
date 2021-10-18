@@ -124,7 +124,7 @@ export async function getStaticProps({ locale, params }) {
     return {
         props: {
             _id: id,
-            recipe: await getRecipeById(id + ""),
+            recipe: await getRecipeById(id),
             locale,
             ...await serverSideTranslations(locale, ['common']),
         },
@@ -134,8 +134,8 @@ export async function getStaticProps({ locale, params }) {
 
 export async function getStaticPaths() {
     return {
-        paths: [],
-        fallback: 'blocking',
+        paths: [{ params: { recipe_id: 'bf56ba7b-6e69-46cf-bc3e-0d3339eeb647' } }],
+        fallback: true,
     }
 }
 
