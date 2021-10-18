@@ -2,7 +2,6 @@ import Page from "@/components/shared/page";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from "react";
 import { getRecipeById } from 'lib/api'
-import { useRouter } from 'next/router'
 import Lang from "@/components/shared/lang";
 import imageUrlBuilder from '@sanity/image-url'
 import client from 'lib/sanity'
@@ -10,10 +9,10 @@ import { useTranslation } from 'next-i18next';
 import BlockContent from '@sanity/block-content-to-react'
 import { translate } from "@/components/shared/lang"
 
-const Recipe = (props) => {
+const Recipe = ({recipe}) => {
     const { t } = useTranslation('common');
 
-    const { title, subtitle, servings, time, tags, categories, ingredients, instructions, picture, source } = props.recipe
+    const { title, subtitle, servings, time, tags, categories, ingredients, instructions, picture, source } = recipe
 
     function urlFor(source) {
         return imageUrlBuilder(client).image(source)
@@ -110,17 +109,26 @@ const Recipe = (props) => {
     )
 }
 
-export async function getStaticProps({ locale }) {
-    // const router = useRouter()
-    // const { recipe_id } = router.query
+export async function getStaticProps({ locale, params }) {
+    const id = params.recipe_id
     return {
         props: {
-            recipe: await getRecipeById("a346712c-7f19-44a0-9ce3-2f04b3e9e29c"),
+            _id: id,
+            recipe: await getRecipeById(id+""),
             locale,
             ...await serverSideTranslations(locale, ['common']),
         },
         revalidate: 5
     }
 }
+
+export async function getStaticPaths() {
+    return {
+      paths: [
+        '/recipe/[recipe_id]',
+      ],
+      fallback: 'blocking',
+    }
+  }
 
 export default Recipe

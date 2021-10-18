@@ -1,6 +1,7 @@
 import Lang from "../lang";
 import imageUrlBuilder from '@sanity/image-url'
 import client from 'lib/sanity'
+import Link from 'next/link'
 
 export default function RecipeCard({ _id="", title = "This is the recipe title", servings = 0, image = "", tags = [], time = "45", className = "" }) {
 
@@ -10,7 +11,7 @@ export default function RecipeCard({ _id="", title = "This is the recipe title",
 
     return (
         <div className={` ${className}`}>
-            <a href={"/recipe#"+_id}>
+            <Link href={"/recipe/"+_id}>
                 <div className="flex flex-row rounded-lg shadow-md m-5 p-3">
                     <div className="flex flex-1 flex-col ">
                         <div className="flex flex-1 flex-col flex-grow-0">
@@ -39,7 +40,7 @@ export default function RecipeCard({ _id="", title = "This is the recipe title",
                     <img className="w-1/4 rounded-lg" src={urlFor(image) + ""} />
 
                 </div>
-            </a>
+            </Link>
         </div>
     )
 }
