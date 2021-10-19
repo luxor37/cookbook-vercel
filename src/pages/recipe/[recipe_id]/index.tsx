@@ -130,6 +130,8 @@ const Recipe = ({ recipe }) => {
 }
 
 export async function getStaticProps({ locale, params }) {
+    console.log(params)
+    console.log(params.recipe_id)
     const id = params.recipe_id
     return {
         props: {
