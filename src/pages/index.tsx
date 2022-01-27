@@ -14,9 +14,6 @@ export default function Homepage(props) {
 export async function getStaticProps({ locale }) {
 	return {
 		props: {
-			// about: await getAbout(),
-			// allEducations: await getEducations(), 
-			// allJobs: await getJobs(),
 			locale,
 			...await serverSideTranslations(locale, ['common']),
 		},
