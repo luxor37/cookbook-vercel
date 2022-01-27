@@ -164,17 +164,12 @@ export async function getStaticPaths() {
 
     let pathsFR = [...paths]
 
-    // console.log(paths)
-    // console.log(pathsFR)
-
     pathsFR = pathsFR.map((path) => path = {
         params: { recipe_id: path.params.recipe_id },
         locale: 'fr'
     })
 
     paths = paths.concat(pathsFR)
-
-    console.log(paths)
 
     return {
         paths: paths,
