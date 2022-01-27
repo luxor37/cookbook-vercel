@@ -5,7 +5,15 @@ import { getCardByCategory } from 'lib/api'
 import RecipeCard from "@/components/shared/recipe-card";
 
 
-export default function Drinks(props) {
+export default function Others(props) {
+    if (props.appetizers.length == 0) {
+        return (
+            <Page>
+                Aucune recette trouvée
+            </Page>
+        );
+    }
+
     return (
 
         <Page>
@@ -24,7 +32,7 @@ export default function Drinks(props) {
 export async function getStaticProps({ locale }) {
     return {
         props: {
-            appetizers: await getCardByCategory("drink"),
+            appetizers: await getCardByCategory("other"),
             locale,
             ...await serverSideTranslations(locale, ['common']),
         },

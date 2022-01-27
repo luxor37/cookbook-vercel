@@ -1,47 +1,12 @@
 {
-    "intro1": "My name is Remi Martel, I am a software engineering student at the Université du Québec à Montréal (<1>UQAM</1>). I am interested in web programming, game developping and DevOps. ",
-    "intro2": "I currently work part-time remotly for <1>Nightborn</1> a Digital Application Agency based in Brussels, Belgium as a back-end programmer in Dotnet Core and Node.Js. ",
-    "intro3": "To this day, I have worked at UQAM, at the <1>Canadian Space Agency </1> (CSA) and at <3>Les Pros de la Photo</3> in Montreal. ",
-    "intro4": "At the CSA I learned how to work with the Unity engine and AR tech. I implemented voice and gesture commands for the International Space Station simulator on Microsoft's Hololens. In my other work experiences, I have mostly used C# and the ASP.NET core framework to do web development. ",
-    "intro5": "Each year, I like to volunteer at various video game related events. Since 2016, I have been the LAN director at <1>Otakuthon</1> where I manage a team of volunteers and organise every aspect of the LAN gaming department. ",
-    "intro6": "After starting at Otakuthon, I also started volunteering for <1>Dreamhack Montreal</1> and <3> LAN ETS</3>. ",
-    "intro7": "For both events, I help setup the various installations before and I am part of the tech support crew during them. I also started helping with the logistics department for Dreamhack. ",
-    "intro8": "In 2018, I successfully received my technical DEC in computer science from <1>Champlain College Saint-Lambert</1>. ",
-    "intro9": "I then started university by studying software engineering at <1>ETS</1>. ",
-    "intro10": "A year later, I realised that the ETS's program wasn't technical enough for me, so I changed to the software and computer engineering program offered by UQAM. Currently, I should be graduating in May 2022. ",
-
-    "uqam_educ_title": "Bac. In Software and Computer Engineering",
-    "uqam_educ_subTitle": "Université du Québec à Montréal (UQAM) and École de technologie supérieure (ETS)",
-    "uqam_educ_date": "Sept. 2018 – Present",
-    "champlain_educ_title": "DEC in Computer Science technology",
-    "education_uqam_desc": "Université du Québec, Montreal<1><0>Japanese course 1</0></1>",
-    "education_champlain_desc": "Champlain College Saint-Lambert, Québec<1><0>Honor letter for keeping my grades above 80% throughout my last two semesters</0></1>",
-    
-    "nightborn_job_title": "Back-end developper",
-    "nightborn_job_subTitle": "Nightborn, digital application agency - Brussels, Belgium",
-    "nightborn_job_date": "Feb. 2021 - Present",
-    "nightborn_job_type": "Contract",
-    "experience_nightborn_desc": "<0><0>Worked on various Dotnet Core and Node.Js projects.</0><1>Implemented Dotnet core unit tests.</1></0>",  
-
-    "uqam_job_title": "Junior Programming Analyst",
-    "uqam_job_subTitle": "Universite du Quebec a Montreal (UQAM) - Montreal",
-    "uqam_job_date": "Aug. - Jan. 2020",
-    "uqam_job_type": "Contract",
-    "experience_uqam_desc": "<0><0>Worked on remaking a VB script application in an ASP.Net Core web application with C# and razor.</0><1>Made the whole application myself including the front end and backend including a unit testing layer and a modular data access layer to be reused in future .Net Core applications.</1><2>Did some DevOps by deploying the app using Docker, Jenkins, and Kubernetes (K8s) into a CI/CD pipeline.</2></0>",
-
-    "csa_job_title": "Software Engineering Intern",
-    "csa_job_subTitle": "Canadian Space Agency - Saint-Hubert",
-    "csa_job_date": "Jan. - Apr. 2019",
-    "csa_job_type": "Internship",
-    "experience_csa_desc": "<0><0>Develop a simulator of the ISS for Microsoft’s HoloLens using Unity</0><1>Implement an AMQP interface to animate a model of the ISS based on information from another simulator</1><2>Develop a test bench for the AMQP interface</2></0>",
-
-    "pros_job_title": "Programmer Analyst junior",
-    "pros_job_subTitle": "Les Pros de la Photo - Montreal",
-    "pros_job_date": "Jan. - Aug. 2018",
-    "pros_job_type": "Internship",
-    "experience_pros_desc": "<0><0>Develop new modules for the CMS (Umbraco)</0><1>Maintain and add different pages on websites</1><2>Test code quality</2></0>",
-
-    "about": "about",
-    "experience": "experience",
-    "education": "education"
+    "home": "home",
+    "appetizers": "appetizers",
+    "main dishes": "main dishes",
+    "desserts": "desserts",
+    "drinks": "drinks",
+    "Ingredients": "Ingredients",
+    "Preparations": "Preparations",
+    "Preparation": "Preparation",
+    "others": "Others",
+    "Servings": "Servings"
 }
