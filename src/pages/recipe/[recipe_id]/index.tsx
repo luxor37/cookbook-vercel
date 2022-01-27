@@ -158,9 +158,23 @@ export async function getStaticProps({ locale, params }) {
 
 export async function getStaticPaths() {
     const ids = await getRecipeIds()
-    const paths = ids.map(({ _id }) => ({
+    let paths = ids.map(({ _id }) => ({
         params: { recipe_id: _id }
     }))
+
+    let pathsFR = [...paths]
+
+    // console.log(paths)
+    // console.log(pathsFR)
+
+    pathsFR = pathsFR.map((path) => path = {
+        params: { recipe_id: path.params.recipe_id },
+        locale: 'fr'
+    })
+
+    paths = paths.concat(pathsFR)
+
+    console.log(paths)
 
     return {
         paths: paths,
