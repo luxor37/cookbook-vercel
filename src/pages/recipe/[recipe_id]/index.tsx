@@ -10,7 +10,9 @@ import BlockContent from '@sanity/block-content-to-react'
 import { translate } from "@/components/shared/lang"
 import { useRouter } from 'next/router'
 
-const Recipe = ({ recipe }) => {
+const Recipe = ({ _id, recipe }) => {
+
+    console.log(_id)
 
     const router = useRouter()
 
@@ -133,10 +135,20 @@ export async function getStaticProps({ locale, params }) {
     console.log(params)
     console.log(params.recipe_id)
     const id = params.recipe_id
+
+    let recipe = undefined;
+    try{
+        recipe = await getRecipeById(id)
+    }
+    catch{
+        recipe = undefined;
+    }
+
     return {
         props: {
+            params: params,
             _id: id,
-            recipe: await getRecipeById(id),
+            recipe: recipe,
             locale,
             ...await serverSideTranslations(locale, ['common']),
         },
@@ -151,7 +163,8 @@ export async function getStaticPaths() {
     }))
 
     return {
-        paths: paths,
+        paths: [
+        ],
         fallback: true,
     }
 }
