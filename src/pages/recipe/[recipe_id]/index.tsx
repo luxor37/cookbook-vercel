@@ -132,21 +132,10 @@ const Recipe = ({ _id, recipe }) => {
 }
 
 export async function getStaticProps({ locale, params }) {
-    console.log(params)
-    console.log(params.recipe_id)
     const id = params.recipe_id
-
-    let recipe = undefined;
-    try{
-        recipe = await getRecipeById(id)
-    }
-    catch{
-        recipe = undefined;
-    }
-
+    let recipe = await getRecipeById(id)
     return {
         props: {
-            params: params,
             _id: id,
             recipe: recipe,
             locale,
