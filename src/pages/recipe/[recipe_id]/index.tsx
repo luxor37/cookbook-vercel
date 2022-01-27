@@ -23,7 +23,7 @@ const Recipe = ({ _id, recipe }) => {
 
         const { t } = useTranslation('common');
 
-        const { title, subtitle, servings, time, tags, categories, ingredients, instructions, picture, source } = recipe
+        let { title, subtitle, servings, time, tags, categories, ingredients, instructions, picture, source } = recipe
 
         function urlFor(source) {
             return imageUrlBuilder(client).image(source)
@@ -162,7 +162,7 @@ export async function getStaticPaths() {
 
     return {
         paths: paths,
-        fallback: true,
+        fallback: 'blocking',
     }
 }
 

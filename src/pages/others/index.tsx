@@ -36,6 +36,6 @@ export async function getStaticProps({ locale }) {
             locale,
             ...await serverSideTranslations(locale, ['common']),
         },
-        revalidate: 5
+        revalidate: 5,
     }
 }
