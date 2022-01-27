@@ -21,7 +21,7 @@ export default function Dishes(props) {
                 ({ _id, title, servings, time, tags, picture, source }) => {
                     return (
                         <RecipeCard _id={_id} title={title} time={time} servings={servings}
-                            image={picture} tags={tags} />
+                            image={picture} tags={tags} key={_id} />
                     )
                 }
             )}

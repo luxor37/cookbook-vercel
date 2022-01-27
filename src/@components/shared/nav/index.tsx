@@ -35,6 +35,9 @@ export const Navbar = () => {
                         <li className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/drinks" text={t('drinks')} />
                         </li>
+                        <li className="md:mx-5 ml-auto mr-auto">
+                            <NavButton href="/others" text={t('others')} />
+                        </li>
                     </ul>
                     <div className=" text-center">
                     <NavButtonLang />
