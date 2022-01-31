@@ -53,11 +53,6 @@ export default function Homepage({ locale }) {
 							<LinkButton className="mr-5" href="/desserts" text={t('Desserts')} />
 							<LinkButton className="mr-5" href="/drinks" text={t('Drinks')} />
 							<LinkButton className="mr-5" href="/others" text={t('Others')} />
-							{/* <a className="no-underline ml-5 mr-5" href="/appetizers">{t('Appetizers')}</a>
-							<a className="no-underline mr-5" href="/maindishes">{t('Main Dishes')}</a>
-							<a className="no-underline mr-5" href="/appetizers">{t('Desserts')}</a>
-							<a className="no-underline mr-5" href="/appetizers">{t('Drinks')}</a>
-							<a className="no-underline mr-5" href="/appetizers">{t('Others')}</a> */}
 						</div>
 					</Row>
 					<Row className="sm:hidden block">
@@ -72,7 +67,8 @@ export default function Homepage({ locale }) {
 				</div>
 			</div>
 
-			<RecipeList recipes={recipes} />
+			{!recipes || recipes.length == 0? (<h1 className="text-center">{t("No results")}</h1>) :
+			(<RecipeList recipes={recipes} />)}
 		</Page>
 	)
 }
