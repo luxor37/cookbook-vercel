@@ -44,7 +44,7 @@ export default function Homepage({ locale }) {
 				<div >
 					<Row>
 						<h5>
-							{t('Categories')} :
+							{t('Quick access')} :
 						</h5>
 						<div className="sm:block hidden">
 							<a className="no-underline ml-5 mr-5" href="/appetizers">{t('Appetizers')}</a>
