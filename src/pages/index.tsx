@@ -1,4 +1,5 @@
-import Lang from "@/components/shared/lang";
+import RecipeList from "@/components/modules/reicpe-list";
+import LinkButton from "@/components/shared/link-button";
 import Page from "@/components/shared/page";
 import RecipeCard from "@/components/shared/recipe-card";
 import Row from "@/components/shared/row";
@@ -47,33 +48,31 @@ export default function Homepage({ locale }) {
 							{t('Quick access')} :
 						</h5>
 						<div className="sm:block hidden">
-							<a className="no-underline ml-5 mr-5" href="/appetizers">{t('Appetizers')}</a>
-							<a className="no-underline mr-5" href="/appetizers">{t('Main Dishes')}</a>
+							<LinkButton className="ml-5 mr-5" href="/appetizers" text={t('Appetizers')} />
+							<LinkButton className="mr-5" href="/maindishes" text={t('Main Dishes')} />
+							<LinkButton className="mr-5" href="/desserts" text={t('Desserts')} />
+							<LinkButton className="mr-5" href="/drinks" text={t('Drinks')} />
+							<LinkButton className="mr-5" href="/others" text={t('Others')} />
+							{/* <a className="no-underline ml-5 mr-5" href="/appetizers">{t('Appetizers')}</a>
+							<a className="no-underline mr-5" href="/maindishes">{t('Main Dishes')}</a>
 							<a className="no-underline mr-5" href="/appetizers">{t('Desserts')}</a>
 							<a className="no-underline mr-5" href="/appetizers">{t('Drinks')}</a>
-							<a className="no-underline mr-5" href="/appetizers">{t('Others')}</a>
+							<a className="no-underline mr-5" href="/appetizers">{t('Others')}</a> */}
 						</div>
 					</Row>
 					<Row className="sm:hidden block">
-						<ol className=" list-disc">
-							<li><a className="no-underline" href="/appetizers">{t('Appetizers')}</a></li>
-							<li><a className="no-underline" href="/appetizers">{t('Main Dishes')}</a></li>
-							<li><a className="no-underline" href="/appetizers">{t('Desserts')}</a></li>
-							<li><a className="no-underline" href="/appetizers">{t('Drinks')}</a></li>
-							<li><a className="no-underline" href="/appetizers">{t('Others')}</a></li>
+						<ol>
+							<li><LinkButton className=" my-2" href="/appetizers" text={t('Appetizers')} /></li>
+							<li><LinkButton className=" my-2" href="/maindishes" text={t('Main Dishes')} /></li>
+							<li><LinkButton className=" my-2" href="/desserts" text={t('Desserts')} /></li>
+							<li><LinkButton className=" my-2" href="/drinks" text={t('Drinks')} /></li>
+							<li><LinkButton className=" my-2" href="/others" text={t('Others')} /></li>
 						</ol>
 					</Row>
 				</div>
 			</div>
 
-			{!recipes ? "" : recipes.map(
-				({ _id, title, servings, time, tags, picture, source }) => {
-					return (
-						<RecipeCard _id={_id} title={title} time={time} servings={servings}
-							image={picture} tags={tags} key={_id} />
-					)
-				}
-			)}
+			<RecipeList recipes={recipes} />
 		</Page>
 	)
 }

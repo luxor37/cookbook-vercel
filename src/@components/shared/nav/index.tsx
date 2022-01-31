@@ -8,11 +8,11 @@ export const Navbar = () => {
     return (
         <nav className='md:text-center md:flex-col md:w-full top-0 left-0 right-0 flex z-10 bg-primary flex-wrap items-center content-between py-4 px-4'>
 
-            <a href="/" className="flex mx-auto mt-auto mb-0 md:hidden">
+            <span className="flex mx-auto mt-auto mb-0 md:hidden">
                 <span className='text-xl text-white font-bold uppercase tracking-wide'>
-                    cookbook
+                    <NavButton href="/" text="cookbook" />
                 </span>
-            </a>
+            </span>
 
             <NavButtonMobile />
 

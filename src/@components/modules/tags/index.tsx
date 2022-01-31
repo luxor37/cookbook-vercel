@@ -11,7 +11,7 @@ export default function Tags({ tags }) {
                 {tags.map(
                     ({ name }) => {
                         return (
-                            <span key={name} className=" my-1 mx-1 bg-primary text-white px-2 rounded-full">
+                            <span key={name} className=" cursor-default my-1 mx-1 bg-primary text-white px-2 rounded-full">
                                 <Lang>{name}</Lang>
                             </span>
                         )
