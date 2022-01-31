@@ -1,7 +1,10 @@
+import Lang from "@/components/shared/lang";
 import Page from "@/components/shared/page";
 import RecipeCard from "@/components/shared/recipe-card";
+import Row from "@/components/shared/row";
 import TextInput from "@/components/shared/text-input";
 import { getFilteredRecipe } from "lib/api";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect, useState } from "react";
 
@@ -10,6 +13,7 @@ export default function Homepage({ locale }) {
 
 	const [search, setSearch] = useState("")
 	const [recipes, setRecipes] = useState([])
+	const { t } = useTranslation('common');
 
 	useEffect(() => {
 		console.log(locale)
@@ -27,24 +31,42 @@ export default function Homepage({ locale }) {
 
 	return (
 		<Page>
-			<div className="flex flex-row rounded-lg shadow-md md:m-5 m-2 p-3">
-				<TextInput
-					className=" w-full"
-					value={search}
-					onChange={setSearch}
-					name="search"
-					placeholder="recherche..."
-				/>
+			<div className="rounded-lg shadow-md md:m-5 m-2 p-3">
+				<Row>
+					<TextInput
+						className=" w-full"
+						value={search}
+						onChange={setSearch}
+						name="search"
+						placeholder={t('Search') + "..."}
+					/>
+				</Row>
+				<div className="sm:hidden block">
+					<Row>
+						<h5>
+							{t('Categories')} :
+						</h5>
+					</Row>
+					<Row>
+						<ol className="">
+							<li><a className="no-underline" href="/appetizers">{t('Appetizers')}</a></li>
+							<li><a className="no-underline" href="/appetizers">{t('Main Dishes')}</a></li>
+							<li><a className="no-underline" href="/appetizers">{t('Desserts')}</a></li>
+							<li><a className="no-underline" href="/appetizers">{t('Drinks')}</a></li>
+							<li><a className="no-underline" href="/appetizers">{t('Others')}</a></li>
+						</ol>
+					</Row>
+				</div>
 			</div>
 
-			{!recipes? "" : recipes.map(
-                ({ _id, title, servings, time, tags, picture, source }) => {
-                    return (
-                        <RecipeCard _id={_id} title={title} time={time} servings={servings}
-                            image={picture} tags={tags} key={_id} />
-                    )
-                }
-            )}
+			{!recipes ? "" : recipes.map(
+				({ _id, title, servings, time, tags, picture, source }) => {
+					return (
+						<RecipeCard _id={_id} title={title} time={time} servings={servings}
+							image={picture} tags={tags} key={_id} />
+					)
+				}
+			)}
 		</Page>
 	)
 }

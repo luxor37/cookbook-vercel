@@ -1,5 +1,5 @@
-import Lang from "../shared/lang";
-import Nullable from "../shared/undefinable"
+import Lang from "../../shared/lang";
+import Nullable from "../../shared/undefinable"
 
 export default function Tags({ tags }) {
     if (!tags) {

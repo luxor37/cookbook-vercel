@@ -6,10 +6,10 @@ import Lang from "@/components/shared/lang";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router'
 import Nullable from "@/components/shared/undefinable";
-import Ingredients from "@/components/ingredients";
+import Ingredients from "@/components/modules/ingredients";
 import Clock from "@/components/shared/clock-svg";
-import Tags from "@/components/tags";
-import Preparation from "@/components/preparation";
+import Tags from "@/components/modules/tags";
+import Preparation from "@/components/modules/preparation";
 import SanityImage from "@/components/shared/sanityImage";
 
 const Recipe = ({ _id, recipe }) => {

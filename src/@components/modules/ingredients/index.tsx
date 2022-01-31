@@ -1,5 +1,5 @@
 import { useTranslation } from "next-i18next";
-import Lang from "../shared/lang";
+import Lang from "../../shared/lang";
 
 export default function Ingredients({ ingredients }) {
     const { t } = useTranslation('common');

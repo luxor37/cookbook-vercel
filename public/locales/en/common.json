@@ -1,6 +1,7 @@
 {
     "home": "home",
     "appetizers": "appetizers",
+    "Appetizers": "Appetizers",
     "main dishes": "main dishes",
     "desserts": "desserts",
     "drinks": "drinks",
@@ -8,5 +9,7 @@
     "Preparations": "Preparations",
     "Preparation": "Preparation",
     "others": "Others",
-    "Servings": "Servings"
+    "Servings": "Servings",
+    "Search": "Search",
+    "Categories": "Categories"
 }

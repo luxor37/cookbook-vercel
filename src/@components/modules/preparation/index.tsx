@@ -1,7 +1,7 @@
 import client from "lib/sanity";
 import { useTranslation } from "next-i18next";
-import { translate } from "../shared/lang";
-import Nullable from "../shared/undefinable"
+import { translate } from "../../shared/lang";
+import Nullable from "../../shared/undefinable"
 import BlockContent from '@sanity/block-content-to-react'
 
 export default function Preparation({ instructions }) {
