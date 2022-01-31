@@ -28,6 +28,9 @@ export default function Homepage({ locale }) {
 
 			fetchData()
 		}
+		else if(search.length == 0){
+			setRecipes([])
+		}
 	}, [search, setSearch])
 
 	return (
