@@ -41,14 +41,21 @@ export default function Homepage({ locale }) {
 						placeholder={t('Search') + "..."}
 					/>
 				</Row>
-				<div className="sm:hidden block">
+				<div >
 					<Row>
 						<h5>
 							{t('Categories')} :
 						</h5>
+						<div className="sm:block hidden">
+							<a className="no-underline ml-5 mr-5" href="/appetizers">{t('Appetizers')}</a>
+							<a className="no-underline mr-5" href="/appetizers">{t('Main Dishes')}</a>
+							<a className="no-underline mr-5" href="/appetizers">{t('Desserts')}</a>
+							<a className="no-underline mr-5" href="/appetizers">{t('Drinks')}</a>
+							<a className="no-underline mr-5" href="/appetizers">{t('Others')}</a>
+						</div>
 					</Row>
-					<Row>
-						<ol className="">
+					<Row className="sm:hidden block">
+						<ol className=" list-disc">
 							<li><a className="no-underline" href="/appetizers">{t('Appetizers')}</a></li>
 							<li><a className="no-underline" href="/appetizers">{t('Main Dishes')}</a></li>
 							<li><a className="no-underline" href="/appetizers">{t('Desserts')}</a></li>
