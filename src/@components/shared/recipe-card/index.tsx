@@ -4,7 +4,7 @@ import client from 'lib/sanity'
 import Link from 'next/link'
 import { useTranslation } from "next-i18next";
 
-export default function RecipeCard({ _id="", title = "This is the recipe title", servings = 0, image = "", tags = [], time = "45", className = "" }) {
+export default function RecipeCard({ _id="", title = "This is the recipe title", servings = 0, image = "", tags = [], time = "_", className = "" }) {
 
     function urlFor(source) {
         return imageUrlBuilder(client).image(source)

@@ -17,7 +17,7 @@ export default function Ingredients({ ingredients }) {
                         <tbody>
                             {ingredients.map(
                                 ({ name, quantity, unit }) => {
-                                    const bullet = quantity != " " ? " :" : " "
+                                    const bullet = quantity == " " || !quantity ? " " : " :"
                                     return (
                                         <tr key={name.en} className="pb-3">
                                             <td className=" text-right pr-3">
