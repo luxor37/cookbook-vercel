@@ -14,7 +14,7 @@ export default function Column({ noPadding = false, width, children, className =
 
     var paddings = noPadding ? `` : `p-2`;
     return (
-        <div className={` ${className} flex flex-col ${paddings} ${col_width}  `}>
+        <div className={` ${className} flex flex-col ${paddings} md:${col_width}  w-full`}>
             {children}
         </div>
     )
