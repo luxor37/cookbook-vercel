@@ -52,4 +52,9 @@ $theme-colors: (
   'dark': #001738,
 );
 
+#__next {
+ height: 100%;
+ position: relative
+}
+
 @import '/node_modules/bootstrap/scss/bootstrap.scss';
