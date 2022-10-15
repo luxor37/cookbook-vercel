@@ -3,14 +3,14 @@ import { Navbar } from '@/components/shared/nav'
 
 export default function Page({ children, className = "" }) {
     return (
-        <div className={` ${className} h-full`}>
+        <div className={` ${className} h-full flex flex-col`}>
             <Head>
                 <title>MyCookbook</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
             <Navbar />
-            <div className=" mt-10 xl:mx-80 min-h-full">
+            <div className="xl:mx-80 h-full">
                 {children}
             </div>
 
