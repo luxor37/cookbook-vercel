@@ -11,18 +11,32 @@ import Tags from "@/components/modules/tags";
 import Preparation from "@/components/modules/preparation";
 import { Box, Heading, HStack, Text, Image, VStack } from "@chakra-ui/react";
 import { urlFor } from "@/utils/imageParse";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
-const Recipe = ({ _id, recipe }) => {
+export interface IRecipe {
+    recipe: {
+        title: string,
+        subtitle: string,
+        servings: number,
+        time: string,
+        tags: [],
+        ingredients: any,
+        instructions: any,
+        picture: SanityImageSource,
+        source: string
+    }
+}
+
+const Recipe = ({ recipe: { title, subtitle, servings, time, tags, ingredients, instructions, picture, source } }: IRecipe) => {
     const router = useRouter()
 
-    if (router.isFallback || !recipe) {
+    if (router.isFallback) {
         return <Box>Loading...</Box>
     }
     else {
 
         const { t } = useTranslation('common');
 
-        let { title, subtitle, servings, time, tags, ingredients, instructions, picture, source } = recipe
 
         return (
             <Page>

@@ -2,7 +2,7 @@ import NavButton from "./nav-button";
 import NavButtonMobile from "./nav-button-mobile";
 import NavButtonLang from "./nav-button-lang";
 import { useTranslation } from 'next-i18next';
-import { Box } from "@chakra-ui/react";
+import { Box, ListItem, UnorderedList } from "@chakra-ui/react";
 
 export const Navbar = () => {
     const { t } = useTranslation('common');
@@ -20,26 +20,26 @@ export const Navbar = () => {
             <Box className="nav-items md:mb-auto md:items-start md:flex-grow-0 md:max-h-full md:flex max-h-0 box-border w-full items-center flex-grow my-auto">
 
                 <Box className="md:w-full md:flex md:justify-between">
-                    <ul className='flex flex-col md:flex-row pl-0 mb-0 list-none'>
-                        <li className="md:mx-5 ml-auto mr-auto">
+                    <UnorderedList className='flex flex-col md:flex-row pl-0 mb-0 list-none'>
+                        <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/" text={t('home')} />
-                        </li>
-                        <li className="md:mx-5 ml-auto mr-auto">
+                        </ListItem>
+                        <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/appetizers" text={t('appetizers')} />
-                        </li>
-                        <li className="md:mx-5 ml-auto mr-auto">
+                        </ListItem>
+                        <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/maindishes" text={t('main dishes')} />
-                        </li>
-                        <li className="md:mx-5 ml-auto mr-auto">
+                        </ListItem>
+                        <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/desserts" text={t('desserts')} />
-                        </li>
-                        <li className="md:mx-5 ml-auto mr-auto">
+                        </ListItem>
+                        <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/drinks" text={t('drinks')} />
-                        </li>
-                        <li className="md:mx-5 ml-auto mr-auto">
+                        </ListItem>
+                        <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/others" text={t('others')} />
-                        </li>
-                    </ul>
+                        </ListItem>
+                    </UnorderedList>
                     <Box className=" text-center">
                         <NavButtonLang />
                     </Box>

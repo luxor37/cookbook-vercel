@@ -1,7 +1,6 @@
 import RecipeList from "@/components/modules/reicpe-list";
 import LinkButton from "@/components/shared/link-button";
 import Page from "@/components/shared/page";
-import TextInput from "@/components/shared/text-input";
 import { Box, Heading, HStack, Input, Link, ListItem, UnorderedList } from "@chakra-ui/react";
 import { getFilteredRecipe } from "lib/api";
 import { useTranslation } from "next-i18next";
@@ -74,9 +73,11 @@ export default function Homepage({ locale }) {
 				</Box>
 			</Box>
 
-			{!recipes || recipes.length == 0 ? (<h1 className="text-center">{t("No results")}</h1>) :
-				(<RecipeList recipes={recipes} />)}
-		</Page>
+			{!recipes || recipes.length == 0
+				? (<Heading as='h2' size='2xl' textAlign={'center'}>{t("No results")}</Heading>)
+				: (<RecipeList recipes={recipes} />)
+			}
+		</Page >
 	)
 }
 

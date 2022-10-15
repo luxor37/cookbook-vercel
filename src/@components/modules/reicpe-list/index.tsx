@@ -1,6 +1,6 @@
 import PageSpinner from "@/components/shared/page-spinner";
 import RecipeCard from "@/components/shared/recipe-card";
-import { HStack } from "@chakra-ui/react";
+import { Heading, HStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
 
@@ -15,7 +15,7 @@ export default function RecipeList({ recipes }) {
 
     if (!recipes || recipes.length == 0) {
         const { t } = useTranslation('common');
-        return <h1 className="text-center">{t('No recipes yet')}</h1>
+        return <Heading as='h2' size='2xl' textAlign={'center'}>{t('No recipes yet')}</Heading>
     }
     else {
         return (

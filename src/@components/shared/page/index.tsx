@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Navbar } from '@/components/shared/nav'
-import { Box } from "@chakra-ui/react";
+import { Box, Link } from "@chakra-ui/react";
 
 export default function Page({ children, className = "" }) {
     return (
@@ -16,11 +16,11 @@ export default function Page({ children, className = "" }) {
             </Box>
 
 
-            <footer className="xl:px-80 bg-primary pb-5 pt-3 bottom-0 text-white text-center">
-                Remi Martel - <a href="mailto:remi.martel.37@gmail.com?subject=MyCookbook" className=" text-gray-300 hover:text-white">remi.martel.37@gmail.com</a>
+            <Box className="xl:px-80 bg-primary pb-5 pt-3 bottom-0 text-white text-center">
+                Remi Martel - <Link href="mailto:remi.martel.37@gmail.com?subject=MyCookbook">remi.martel.37@gmail.com</Link>
                 <br />
                 &copy; 2022 Remi Martel
-            </footer>
+            </Box>
         </Box>
     )
 }
