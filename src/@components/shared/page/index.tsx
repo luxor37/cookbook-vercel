@@ -15,8 +15,10 @@ export default function Page({ children, className = "" }) {
             </div>
 
 
-            <footer className="xl:px-80 bg-primary bottom-0 text-white text-center">
-                Remi Martel
+            <footer className="xl:px-80 bg-primary pb-5 pt-3 bottom-0 text-white text-center">
+                Remi Martel - <a href="mailto:remi.martel.37@gmail.com?subject=MyCookbook" className=" text-gray-300 hover:text-white">remi.martel.37@gmail.com</a>
+                <br />
+                &copy; 2022 Remi Martel
             </footer>
         </div>
     )
