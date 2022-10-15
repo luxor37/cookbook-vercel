@@ -8,11 +8,11 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang="en" className="bg-page w-screen h-screen flex-1 flex flew-col">
+            <Html lang="en" className="bg-page w-full min-h-full flex-1 flex flew-col">
                 <Head>
                     <link rel="shortcut icon" href="/favicon.ico" />
                 </Head>
-                <body className="w-full">
+                <body className="w-full min-h-full">
                     <Main />
                     <NextScript />
                 </body>
