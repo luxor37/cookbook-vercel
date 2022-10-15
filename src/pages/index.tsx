@@ -1,4 +1,4 @@
-import RecipeList from "@/components/modules/reicpe-list";
+import RecipeList from "@/components/modules/recipe-list";
 import LinkButton from "@/components/shared/link-button";
 import Page from "@/components/shared/page";
 import { Box, Heading, HStack, Input, Link, ListItem, UnorderedList } from "@chakra-ui/react";

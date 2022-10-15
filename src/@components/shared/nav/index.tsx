@@ -20,7 +20,7 @@ export const Navbar = () => {
             <Box className="nav-items md:mb-auto md:items-start md:flex-grow-0 md:max-h-full md:flex max-h-0 box-border w-full items-center flex-grow my-auto">
 
                 <Box className="md:w-full md:flex md:justify-between">
-                    <UnorderedList className='flex flex-col md:flex-row pl-0 mb-0 list-none'>
+                    <UnorderedList listStyleType={'none'} className='flex flex-col md:flex-row pl-0 mb-0'>
                         <ListItem className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/" text={t('home')} />
                         </ListItem>
