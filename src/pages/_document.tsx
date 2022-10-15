@@ -12,7 +12,7 @@ class MyDocument extends Document {
                 <Head>
                     <link rel="shortcut icon" href="/favicon.ico" />
                 </Head>
-                <body className="w-full h-full relative">
+                <body className="w-full">
                     <Main />
                     <NextScript />
                 </body>
