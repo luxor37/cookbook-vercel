@@ -1,14 +1,13 @@
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Input } from "@chakra-ui/react";
 import { DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 
 export interface TextInput
     extends Omit<
-    DetailedHTMLProps<
-        InputHTMLAttributes<HTMLInputElement>,
-        HTMLInputElement
-    >,
-    "onChange"
+        DetailedHTMLProps<
+            InputHTMLAttributes<HTMLInputElement>,
+            HTMLInputElement
+        >,
+        "onChange"
     > {
     className?: string;
     onChange?(event): void;
@@ -23,7 +22,7 @@ export default function TextInput({
 }: TextInput) {
 
     return (
-        <input className={`${className} py-2 px-3 text-base bg-clip-padding border rounded`}
+        <Input className={`${className} py-2 px-3 text-base bg-clip-padding border rounded`}
             type="text"
             value={value}
             onChange={(event) => onChange(event.target.value)}

@@ -7,7 +7,6 @@ import RecipeList from "@/components/modules/reicpe-list";
 
 export default function Others(props) {
     return (
-
         <Page>
             <RecipeList recipes={props.recipes} />
         </Page>

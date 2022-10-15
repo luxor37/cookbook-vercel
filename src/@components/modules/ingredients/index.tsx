@@ -1,39 +1,37 @@
+import { Box, BoxProps, Heading, Table, Tbody, Td, Tr } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import Lang from "../../shared/lang";
 
-export default function Ingredients({ ingredients }) {
+export interface IIngredients extends BoxProps {
+    ingredients: { name: any, quantity?: number, unit: any }[]
+}
+
+export default function Ingredients({ ingredients, ...rest }: IIngredients) {
     const { t } = useTranslation('common');
 
-    if (!ingredients) {
-        return <></>
-    }
-    else {
-        return (
-            <>
-                <h3 className="pb-3">
-                    {t('Ingredients')} :
-                </h3><div className="flex flex-row ">
-                    <table>
-                        <tbody>
-                            {ingredients.map(
-                                ({ name, quantity, unit }) => {
-                                    const bullet = quantity == " " || !quantity ? " " : " :"
-                                    return (
-                                        <tr key={name.en} className="pb-3">
-                                            <td className=" text-right pr-3">
-                                                <Lang>{name}</Lang>{bullet}
-                                            </td>
-                                            <td>
-                                                {quantity} <Lang>{unit.name}</Lang>
-                                            </td>
-                                        </tr>
-                                    )
-                                })
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </>
-        )
-    }
+    return (
+        <Box {...rest}>
+            <Heading as='h3' size='md' pb={"0.75rem"}>
+                {t('Ingredients')} :
+            </Heading>
+            <Table w={'unset'}>
+                <Tbody>
+                    {ingredients.map(
+                        ({ name, quantity, unit }) => {
+                            return (
+                                <Tr key={name.en} pb={"0.75rem"}>
+                                    <Td textAlign={"right"}>
+                                        <Lang>{name}</Lang>{quantity && " :"}
+                                    </Td>
+                                    <Td>
+                                        {quantity} <Lang>{unit.name}</Lang>
+                                    </Td>
+                                </Tr>
+                            )
+                        })
+                    }
+                </Tbody>
+            </Table>
+        </Box >
+    )
 }

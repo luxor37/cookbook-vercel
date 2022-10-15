@@ -1,11 +1,14 @@
-import Link from 'next/link';
+import { Link, LinkProps } from "@chakra-ui/react";
 
-export default function LinkButton({ className="", href, text }) {
+export interface ILinkButton extends LinkProps {
+    href: string
+    text: string
+}
+
+export default function LinkButton({ href, text, ...rest }: ILinkButton) {
     return (
-        <Link href={href}>
-            <a className={`${className} opacity-75 font-extrabold uppercase hover:opacity-100 focus:opacity-100`}>
-                {text}
-            </a>
+        <Link href={href} opacity={0.5} fontWeight={"extrabold"} textTransform={"uppercase"} _hover={{ opacity: 1 }} _focus={{ opacity: 1 }} {...rest}>
+            {text}
         </Link>
     )
 }

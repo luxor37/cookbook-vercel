@@ -6,10 +6,13 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import { appWithTranslation } from 'next-i18next';
+import { ChakraProvider } from '@chakra-ui/react'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<Component {...pageProps} />
+		<ChakraProvider>
+			<Component {...pageProps} />
+		</ChakraProvider>
 	)
 }
 export default appWithTranslation(MyApp);

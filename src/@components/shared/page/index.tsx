@@ -1,18 +1,19 @@
 import Head from "next/head";
 import { Navbar } from '@/components/shared/nav'
+import { Box } from "@chakra-ui/react";
 
 export default function Page({ children, className = "" }) {
     return (
-        <div className={` ${className} h-full flex flex-col`}>
+        <Box className={` ${className} h-full flex flex-col`}>
             <Head>
                 <title>MyCookbook</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
             <Navbar />
-            <div className="xl:mx-80 h-full">
+            <Box className="xl:mx-80 h-full">
                 {children}
-            </div>
+            </Box>
 
 
             <footer className="xl:px-80 bg-primary pb-5 pt-3 bottom-0 text-white text-center">
@@ -20,6 +21,6 @@ export default function Page({ children, className = "" }) {
                 <br />
                 &copy; 2022 Remi Martel
             </footer>
-        </div>
+        </Box>
     )
 }

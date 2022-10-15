@@ -2,6 +2,7 @@ import NavButton from "./nav-button";
 import NavButtonMobile from "./nav-button-mobile";
 import NavButtonLang from "./nav-button-lang";
 import { useTranslation } from 'next-i18next';
+import { Box } from "@chakra-ui/react";
 
 export const Navbar = () => {
     const { t } = useTranslation('common');
@@ -16,9 +17,9 @@ export const Navbar = () => {
 
             <NavButtonMobile />
 
-            <div className="nav-items md:mb-auto md:items-start md:flex-grow-0 md:max-h-full md:flex max-h-0 box-border w-full items-center flex-grow my-auto">
+            <Box className="nav-items md:mb-auto md:items-start md:flex-grow-0 md:max-h-full md:flex max-h-0 box-border w-full items-center flex-grow my-auto">
 
-                <div className="md:w-full md:flex md:justify-between">
+                <Box className="md:w-full md:flex md:justify-between">
                     <ul className='flex flex-col md:flex-row pl-0 mb-0 list-none'>
                         <li className="md:mx-5 ml-auto mr-auto">
                             <NavButton href="/" text={t('home')} />
@@ -39,11 +40,11 @@ export const Navbar = () => {
                             <NavButton href="/others" text={t('others')} />
                         </li>
                     </ul>
-                    <div className=" text-center">
-                    <NavButtonLang />
-                    </div>
-                </div>
-            </div>
+                    <Box className=" text-center">
+                        <NavButtonLang />
+                    </Box>
+                </Box>
+            </Box>
 
 
 
