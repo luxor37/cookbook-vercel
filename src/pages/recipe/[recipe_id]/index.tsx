@@ -46,7 +46,7 @@ const Recipe = ({ _id, recipe }) => {
 
                     <Tags tags={tags} />
 
-                    <Image display={{ base: "flex", md: "none" }} rounded={"0.5rem"} src={urlFor(picture)} />
+                    <Image display={{ base: "flex", md: "none" }} rounded={"0.5rem"} src={urlFor(picture)} alt={`${title}-image`} />
 
                     {source && (
                         <Text>Source: <Lang>{source}</Lang></Text>
@@ -54,7 +54,7 @@ const Recipe = ({ _id, recipe }) => {
 
                     <HStack alignItems={'start'} justifyContent={'space-between'} w={'full'}>
                         <Ingredients mt={"1.25rem"} ingredients={ingredients} />
-                        <Image display={{ base: "none", md: "block" }} maxW={'30rem'} w={'full'} rounded={"0.5rem"} src={urlFor(picture)} />
+                        <Image display={{ base: "none", md: "block" }} maxW={'30rem'} w={'full'} rounded={"0.5rem"} src={urlFor(picture)} alt={`${title}-image`} />
                     </HStack>
 
                     <Preparation mt={"1.25rem"} instructions={instructions} />

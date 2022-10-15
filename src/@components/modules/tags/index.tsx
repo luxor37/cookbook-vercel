@@ -8,11 +8,11 @@ export interface ITags {
 export default function Tags({ tags }: ITags) {
     return (
         <HStack>
-            {tags.map(({ name }) => {
+            {tags.map(({ name }, index) => {
                 return (
                     <Box
                         cursor={"pointer"}
-                        key={name}
+                        key={index}
                         m={"0.25rem"}
                         px={"0.5rem"}
                         rounded={"full"}

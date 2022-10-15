@@ -21,7 +21,7 @@ export default function RecipeList({ recipes }) {
         return (
             <HStack className="container flex items-stretch">
                 {recipes.map(
-                    ({ _id, title, servings, time, tags, picture, source }) => {
+                    ({ _id, title, servings, time, tags, picture, source }, index) => {
                         return (
                             <RecipeCard
                                 className=" h-full"
@@ -31,7 +31,7 @@ export default function RecipeList({ recipes }) {
                                 servings={servings}
                                 image={picture}
                                 tags={tags}
-                                key={_id}
+                                key={index}
                                 setIsLoading={setIsLoading}
                             />
                         )

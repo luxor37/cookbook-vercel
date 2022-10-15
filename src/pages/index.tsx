@@ -60,14 +60,14 @@ export default function Homepage({ locale }) {
 						</Heading>
 						<HStack display={{ base: "none", sm: "block" }}>
 							{paths.map(({ path, name }, index) => {
-								return (<LinkButton ml={'1.25rem'} mr={index === 0 ? '1.25rem' : ''} href={path} text={name} />)
+								return (<LinkButton ml={'1.25rem'} mr={index === 0 ? '1.25rem' : ''} href={path} text={name} key={index} />)
 							})}
 						</HStack>
 					</HStack>
 					<HStack display={{ base: "block", sm: "none" }}>
 						<UnorderedList>
-							{paths.map(({ path, name }) => {
-								return (<ListItem><LinkButton my={"0.5rem"} href={path} text={name} /></ListItem>)
+							{paths.map(({ path, name }, index) => {
+								return (<ListItem key={index}><LinkButton my={"0.5rem"} href={path} text={name} key={index} /></ListItem>)
 							})}
 						</UnorderedList>
 					</HStack>

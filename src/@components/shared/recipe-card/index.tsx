@@ -4,7 +4,7 @@ import Tags from "@/components/modules/tags";
 import Clock from "../clock-svg";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
-import { Box, BoxProps, HStack, Image, VStack, Text, Heading } from "@chakra-ui/react";
+import { Box, BoxProps, Image, VStack, Text, Heading } from "@chakra-ui/react";
 import { urlFor } from "@/utils/imageParse";
 
 export interface IRecipeCard extends BoxProps {
@@ -42,7 +42,9 @@ export default function RecipeCard({
         <Box cursor={"pointer"} onClick={clickRecipe} {...rest} >
             <Box rounded={"1rem"} className="hover:shadow-lg shadow-md md:m-5 m-1 p-3">
                 <VStack>
-                    <Heading as='h2' size='2xl' className="text-primary font-bold"><Lang>{title}</Lang></Heading>
+                    <Heading as='h2' size='2xl' className="text-primary font-bold">
+                        <Lang>{title}</Lang>
+                    </Heading>
                     <VStack alignItems={"start"} w={'full'}>
                         <Text display={"inline-flex"}>
                             {servings && (
@@ -60,6 +62,7 @@ export default function RecipeCard({
                         rounded={"1rem"}
                         h={'full'}
                         src={urlFor(image)}
+                        alt={`${title}-image`}
                     />
                 </Box>
             </Box>

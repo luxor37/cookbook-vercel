@@ -17,9 +17,9 @@ export default function Ingredients({ ingredients, ...rest }: IIngredients) {
             <Table w={'unset'}>
                 <Tbody>
                     {ingredients.map(
-                        ({ name, quantity, unit }) => {
+                        ({ name, quantity, unit }, index) => {
                             return (
-                                <Tr key={name.en} pb={"0.75rem"}>
+                                <Tr key={index} pb={"0.75rem"}>
                                     <Td textAlign={"right"}>
                                         <Lang>{name}</Lang>{quantity && " :"}
                                     </Td>
