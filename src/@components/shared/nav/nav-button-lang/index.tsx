@@ -5,7 +5,7 @@ export default function NavButtonLang({ }) {
     const router = useRouter()
     const { pathname, asPath, query, locale } = router
     return (
-        <Box className="cursor-pointer" onClick={() => { router.push({ pathname, query }, asPath, { locale: locale === 'en' ? 'fr' : 'en' }) }}>
+        <Box cursor={'pointer'} onClick={() => { router.push({ pathname, query }, asPath, { locale: locale === 'en' ? 'fr' : 'en' }) }}>
             <Text
                 textColor={'white'}
                 opacity={'0.75'}
@@ -14,7 +14,7 @@ export default function NavButtonLang({ }) {
                 my={'0.75rem'}
                 _hover={{ opacity: '1', textColor: 'white' }}
                 _focus={{ opacity: '1', textColor: 'white' }}>
-                {locale === 'en' ? 'FR' : 'EN'}
+                {locale}
             </Text>
         </Box>
     )

@@ -1,5 +1,6 @@
 import RecipeList from "@/components/modules/recipe-list";
 import LinkButton from "@/components/shared/link-button";
+import { PATHS } from "@/components/shared/nav";
 import Page from "@/components/shared/page";
 import { Box, Heading, HStack, Input, Link, ListItem, UnorderedList } from "@chakra-ui/react";
 import { getFilteredRecipe } from "lib/api";
@@ -7,20 +8,11 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React, { useEffect, useState } from "react";
 
-
 export default function Homepage({ locale }) {
 
 	const [search, setSearch] = useState("")
 	const [recipes, setRecipes] = useState([])
 	const { t } = useTranslation('common');
-
-	const paths = [
-		{ path: "/appetizers", name: t('Appetizers') },
-		{ path: "/maindishes", name: t('Main Dishes') },
-		{ path: "/desserts", name: t('Desserts') },
-		{ path: "/drinks", name: t('Drinks') },
-		{ path: "/others", name: t('Others') },
-	]
 
 	useEffect(() => {
 		console.log(locale)
@@ -58,15 +50,15 @@ export default function Homepage({ locale }) {
 							{t('Quick access')} :
 						</Heading>
 						<HStack display={{ base: "none", sm: "flex" }}>
-							{paths.map(({ path, name }, index) => {
-								return (<LinkButton ml={'1.25rem'} mr={index === 0 ? '1.25rem' : ''} href={path} text={name} key={index} />)
+							{PATHS.map(({ path, name }, index) => {
+								return (<LinkButton ml={'1.25rem'} mr={index === 0 ? '1.25rem' : ''} href={path} text={t(name)} key={index} />)
 							})}
 						</HStack>
 					</HStack>
 					<HStack display={{ base: "flex", sm: "none" }}>
 						<UnorderedList>
-							{paths.map(({ path, name }, index) => {
-								return (<ListItem key={index}><LinkButton my={"0.5rem"} href={path} text={name} key={index} /></ListItem>)
+							{PATHS.map(({ path, name }, index) => {
+								return (<ListItem key={index}><LinkButton my={"0.5rem"} href={path} text={t(name)} key={index} /></ListItem>)
 							})}
 						</UnorderedList>
 					</HStack>
