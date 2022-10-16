@@ -12,6 +12,7 @@ import Preparation from "@/components/modules/preparation";
 import { Box, Heading, HStack, Text, Image, VStack } from "@chakra-ui/react";
 import { urlFor } from "@/utils/imageParse";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import InfoAndTags from "@/components/shared/info-and-tags";
 
 export interface IRecipe {
     recipe: {
@@ -49,16 +50,7 @@ const Recipe = ({ recipe: { title, subtitle, servings, time, tags, ingredients, 
                         )}
                     </Box>
 
-                    <HStack>
-                        {servings && (
-                            <Box><Text>{t('Servings')}: {servings}</Text></Box>
-                        )}
-                        {time && (
-                            <HStack><Clock /><Text> {time} min</Text></HStack>
-                        )}
-                    </HStack>
-
-                    <Tags tags={tags} />
+                    <InfoAndTags servings={servings} time={time} tags={tags} inline />
 
                     <Image display={{ base: "flex", md: "none" }} rounded={"0.5rem"} src={urlFor(picture)} alt={`${title}-image`} />
 

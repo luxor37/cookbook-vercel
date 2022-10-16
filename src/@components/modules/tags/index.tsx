@@ -13,8 +13,10 @@ export default function Tags({ tags }: ITags) {
                     <Box
                         cursor={"pointer"}
                         key={index}
-                        m={"0.25rem"}
+                        ml={index !== 0 && "0.25rem"}
+                        mr={"0.25rem"}
                         px={"0.5rem"}
+                        pb={'0.2rem'}
                         rounded={"full"}
                         textColor={"white"}
                         className="bg-primary"

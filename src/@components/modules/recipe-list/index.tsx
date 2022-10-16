@@ -1,6 +1,6 @@
 import PageSpinner from "@/components/shared/page-spinner";
 import RecipeCard from "@/components/shared/recipe-card";
-import { Heading, HStack } from "@chakra-ui/react";
+import { Heading, HStack, SimpleGrid } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
 
@@ -19,12 +19,11 @@ export default function RecipeList({ recipes }) {
     }
     else {
         return (
-            <HStack className="container flex items-stretch">
+            <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} alignItems={'stretch'}>
                 {recipes.map(
                     ({ _id, title, servings, time, tags, picture, source }, index) => {
                         return (
                             <RecipeCard
-                                className=" h-full"
                                 _id={_id}
                                 title={title}
                                 time={time}
@@ -33,11 +32,12 @@ export default function RecipeList({ recipes }) {
                                 tags={tags}
                                 key={index}
                                 setIsLoading={setIsLoading}
+                                maxH={'full'}
                             />
                         )
                     }
                 )}
-            </HStack>
+            </SimpleGrid>
         )
     }
 }

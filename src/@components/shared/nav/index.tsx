@@ -7,7 +7,15 @@ import { Box, ListItem, UnorderedList } from "@chakra-ui/react";
 export const Navbar = () => {
     const { t } = useTranslation('common');
     return (
-        <nav className='md:text-center md:flex-col md:w-full top-0 left-0 right-0 flex z-10 bg-primary flex-wrap items-center content-between py-4 px-4'>
+        <Box
+            w={'full'}
+            display={'flex'}
+            zIndex={10}
+            alignItems={'center'}
+            alignContent={'space-between'}
+            flexWrap={'wrap'}
+            p={"1rem"}
+            className='bg-primary'>
 
             <span className="flex mx-auto mt-auto mb-0 md:hidden">
                 <span className='text-xl text-white font-bold uppercase tracking-wide'>
@@ -45,9 +53,6 @@ export const Navbar = () => {
                     </Box>
                 </Box>
             </Box>
-
-
-
-        </nav>
+        </Box>
     )
 }

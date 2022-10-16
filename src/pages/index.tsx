@@ -57,13 +57,13 @@ export default function Homepage({ locale }) {
 						<Heading as='h5' size='sm'>
 							{t('Quick access')} :
 						</Heading>
-						<HStack display={{ base: "none", sm: "block" }}>
+						<HStack display={{ base: "none", sm: "flex" }}>
 							{paths.map(({ path, name }, index) => {
 								return (<LinkButton ml={'1.25rem'} mr={index === 0 ? '1.25rem' : ''} href={path} text={name} key={index} />)
 							})}
 						</HStack>
 					</HStack>
-					<HStack display={{ base: "block", sm: "none" }}>
+					<HStack display={{ base: "flex", sm: "none" }}>
 						<UnorderedList>
 							{paths.map(({ path, name }, index) => {
 								return (<ListItem key={index}><LinkButton my={"0.5rem"} href={path} text={name} key={index} /></ListItem>)

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { Dispatch, SetStateAction } from "react";
 import { Box, BoxProps, Image, VStack, Text, Heading } from "@chakra-ui/react";
 import { urlFor } from "@/utils/imageParse";
+import InfoAndTags from "../info-and-tags";
 
 export interface IRecipeCard extends BoxProps {
     _id: string
@@ -39,34 +40,34 @@ export default function RecipeCard({
     const { t } = useTranslation('common');
 
     return (
-        <Box cursor={"pointer"} onClick={clickRecipe} {...rest} >
-            <Box rounded={"1rem"} className="hover:shadow-lg shadow-md md:m-5 m-1 p-3">
-                <VStack>
-                    <Heading as='h2' size='2xl' className="text-primary font-bold">
-                        <Lang>{title}</Lang>
-                    </Heading>
-                    <VStack alignItems={"start"} w={'full'}>
-                        <Text display={"inline-flex"}>
-                            {servings && (
-                                <>{t('Servings')}: {servings}  &nbsp; - &nbsp;</>
-                            )}
-                            <Clock /> &nbsp; {time} min
-                        </Text>
+        <VStack
+            rounded={"1rem"}
+            m={{ base: '0.25rem', md: '1.25rem' }}
+            p={'0.75rem'}
+            className="hover:shadow-lg shadow-md"
+            justifyContent={'space-between'}
+            cursor={"pointer"}
+            onClick={clickRecipe}
+            alignItems={'start'}
+            bgColor={'white'}
+            {...rest}>
 
-                        <Tags tags={tags} />
-                    </VStack>
-                </VStack>
-                <Box overflow={"hidden"} display={"flex"}>
-                    <Image
-                        cursor={"pointer"}
-                        rounded={"1rem"}
-                        h={'full'}
-                        src={urlFor(image)}
-                        alt={`${title}-image`}
-                    />
-                </Box>
-            </Box>
-        </Box>
+            <VStack justifyContent={'space-between'} maxH={'full'} >
+                <Heading as='h2' size='2xl' className="text-primary font-bold">
+                    <Lang>{title}</Lang>
+                </Heading>
+
+                <InfoAndTags servings={servings} time={time} tags={tags} />
+            </VStack>
+
+            <Image
+                cursor={"pointer"}
+                rounded={"1rem"}
+                w={'full'}
+                src={urlFor(image)}
+                alt={`${title}-image`}
+            />
+        </VStack>
 
     )
 }
