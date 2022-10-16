@@ -5,61 +5,68 @@ import { getRecipeById, getRecipeIds } from 'lib/api'
 import Lang from "@/components/shared/lang";
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router'
-import Nullable from "@/components/shared/undefinable";
 import Ingredients from "@/components/modules/ingredients";
 import Clock from "@/components/shared/clock-svg";
 import Tags from "@/components/modules/tags";
 import Preparation from "@/components/modules/preparation";
-import SanityImage from "@/components/shared/sanityImage";
+import { Box, Heading, HStack, Text, Image, VStack } from "@chakra-ui/react";
+import { urlFor } from "@/utils/imageParse";
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import InfoAndTags from "@/components/shared/info-and-tags";
 
-const Recipe = ({ _id, recipe }) => {
+export interface IRecipe {
+    recipe: {
+        title: string,
+        subtitle: string,
+        servings: number,
+        time: string,
+        tags: [],
+        ingredients: any,
+        instructions: any,
+        picture: SanityImageSource,
+        source: string
+    }
+}
+
+const Recipe = ({ recipe: { title, subtitle, servings, time, tags, ingredients, instructions, picture, source } }: IRecipe) => {
     const router = useRouter()
 
-    if (router.isFallback || !recipe) {
-        return <div>Loading...</div>
+    if (router.isFallback) {
+        return <Box>Loading...</Box>
     }
     else {
 
         const { t } = useTranslation('common');
 
-        let { title, subtitle, servings, time, tags, ingredients, instructions, picture, source } = recipe
 
         return (
             <Page>
-                <div className="flex min-h-screen flex-row rounded-lg shadow-md md:m-5 m-2 p-3">
-                    <div className="flex flex-1 flex-col ">
+                <VStack alignItems={"start"} px={{ base: "1rem", md: "unset" }} py={"2rem"} w={'full'}>
 
-                        <div className="flex flex-1 flex-col flex-grow-0">
-                            <h1 className=" text-primary font-bold"><Lang>{title}</Lang></h1>
-                            <Nullable obj={subtitle}> <h3> <Lang>{subtitle}</Lang> </h3> </Nullable>
-                        </div>
+                    <Box>
+                        <Heading as='h1' size='4xl' fontWeight={"bold"} className="text-primary"><Lang>{title}</Lang></Heading>
+                        {subtitle && (
+                            <Heading as='h3' size='lg'><Lang>{subtitle}</Lang></Heading>
+                        )}
+                    </Box>
 
-                        <SanityImage className="rounded-lg md:hidden flex" picture={picture} />
+                    <InfoAndTags servings={servings} time={time} tags={tags} inline />
 
-                        <p className="inline-flex">
-                            <Nullable obj={servings}> {t('Servings')}: {servings}  &nbsp; - &nbsp; </Nullable>
-                            <Clock /> &nbsp; {time} min
-                        </p>
+                    <Image display={{ base: "flex", md: "none" }} rounded={"0.5rem"} src={urlFor(picture)} alt={`${title}-image`} />
 
-                        <Nullable obj={source}> <p>Source: <Lang>{source}</Lang></p> </Nullable>
+                    {source && (
+                        <Text>Source: <Lang>{source}</Lang></Text>
+                    )}
 
-                        <div className="flex flex-wrap flex-1 flex-grow-0">
-                            <Tags tags={tags} />
-                        </div>
+                    <HStack alignItems={'start'} justifyContent={'space-between'} w={'full'}>
+                        <Ingredients mt={"1.25rem"} ingredients={ingredients} />
+                        <Image display={{ base: "none", md: "block" }} maxW={'30rem'} w={'full'} rounded={"0.5rem"} src={urlFor(picture)} alt={`${title}-image`} />
+                    </HStack>
 
-                        <div className=" mt-5">
-                            <Ingredients ingredients={ingredients} />
-                        </div>
+                    <Preparation mt={"1.25rem"} instructions={instructions} />
 
-                        <div className=" mt-5">
-                            <Preparation instructions={instructions} />
-                        </div>
-                    </div>
 
-                    <div className="w-1/4 md:block hidden">
-                        <SanityImage className="rounded-lg" picture={picture} />
-                    </div>
-                </div>
+                </VStack>
             </Page >
         )
     }

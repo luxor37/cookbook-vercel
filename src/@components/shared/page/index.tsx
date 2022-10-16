@@ -1,25 +1,27 @@
 import Head from "next/head";
 import { Navbar } from '@/components/shared/nav'
+import { Box, Link, VStack } from "@chakra-ui/react";
 
-export default function Page({ children, className = "" }) {
+export default function Page({ children }) {
     return (
-        <div className={` ${className} h-full flex flex-col`}>
+        <VStack h={'full'} display={'flex'} flexDir={'column'} justifyContent={'center'}>
             <Head>
                 <title>MyCookbook</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 
             <Navbar />
-            <div className="xl:mx-80 h-full">
+
+            <Box mx={{ base: '', lg: '20rem !important' }} h={'full'} maxW={'1920px'}>
                 {children}
-            </div>
+            </Box>
 
 
-            <footer className="xl:px-80 bg-primary pb-5 pt-3 bottom-0 text-white text-center">
-                Remi Martel - <a href="mailto:remi.martel.37@gmail.com?subject=MyCookbook" className=" text-gray-300 hover:text-white">remi.martel.37@gmail.com</a>
+            <Box w={'full'} px={{ base: 'unset', xl: '20rem' }} pb={'1.25rem'} pt={'0.75rem'} textColor={'white'} textAlign={'center'} className="bg-primary">
+                Remi Martel - <Link href="mailto:remi.martel.37@gmail.com?subject=MyCookbook">remi.martel.37@gmail.com</Link>
                 <br />
                 &copy; 2022 Remi Martel
-            </footer>
-        </div>
+            </Box>
+        </VStack>
     )
 }

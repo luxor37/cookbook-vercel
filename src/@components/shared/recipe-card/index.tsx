@@ -1,48 +1,73 @@
 import Lang from "../lang";
-import imageUrlBuilder from '@sanity/image-url'
-import client from 'lib/sanity'
-import Link from 'next/link'
 import { useTranslation } from "next-i18next";
-import Column from "../column";
-import Row from "../row";
 import Tags from "@/components/modules/tags";
 import Clock from "../clock-svg";
-import Nullable from "../undefinable";
+import { useRouter } from "next/router";
+import { Dispatch, SetStateAction } from "react";
+import { Box, BoxProps, Image, VStack, Text, Heading } from "@chakra-ui/react";
+import { urlFor } from "@/utils/imageParse";
+import InfoAndTags from "../info-and-tags";
 
-export default function RecipeCard({ _id = "", title = "This is the recipe title", servings = 0, image = "", tags = [], time = "_", className = "" }) {
+export interface IRecipeCard extends BoxProps {
+    _id: string
+    title?: string
+    servings?: number
+    image?: string
+    tags?: { name: string }[]
+    time?: string
+    setIsLoading: Dispatch<SetStateAction<boolean>>
+}
 
-    function urlFor(source) {
-        return imageUrlBuilder(client).image(source)
+export default function RecipeCard({
+    _id,
+    title = "This is the recipe title",
+    servings = 0,
+    image,
+    tags,
+    time,
+    setIsLoading,
+    ...rest
+}: IRecipeCard
+) {
+
+    const router = useRouter()
+
+    function clickRecipe() {
+        setIsLoading(true)
+        router.push("/recipe/" + _id)
     }
 
     const { t } = useTranslation('common');
 
     return (
+        <VStack
+            rounded={"1rem"}
+            m={{ base: '0.25rem', md: '1.25rem' }}
+            p={'0.75rem'}
+            className="hover:shadow-lg shadow-md"
+            justifyContent={'space-between'}
+            cursor={"pointer"}
+            onClick={clickRecipe}
+            alignItems={'start'}
+            bgColor={'white'}
+            {...rest}>
 
-        <Column width={4}>
-            <Link href={"/recipe/" + _id}>
-                <span>
-                    <Row className="rounded-lg hover:shadow-lg shadow-md md:m-5 m-1 p-3">
-                        <Column width={12}>
+            <VStack justifyContent={'space-between'} maxH={'full'} >
+                <Heading as='h2' size='2xl' className="text-primary font-bold">
+                    <Lang>{title}</Lang>
+                </Heading>
 
-                            <h2 className=" cursor-default text-primary font-bold"><Lang>{title}</Lang></h2>
+                <InfoAndTags servings={servings} time={time} tags={tags} />
+            </VStack>
 
-                            <p className="cursor-default inline-flex m-0">
-                                <Nullable obj={servings}> {t('Servings')}: {servings}  &nbsp; - &nbsp; </Nullable>
-                                <Clock /> &nbsp; {time} min
-                            </p>
-
-                            <div className="flex flex-wrap flex-1 flex-grow-0">
-                                <Tags tags={tags} />
-                            </div>
-                        </Column>
-                        <Column className="flex overflow-hidden" width={12}>
-                            <img className="h-full rounded-lg" src={urlFor(image) + ""} />
-                        </Column>
-                    </Row>
-                </span>
-            </Link>
-        </Column>
+            <Image
+                cursor={"pointer"}
+                rounded={"1rem"}
+                w={'full'}
+                src={urlFor(image)}
+                alt={`${title}-image`}
+            />
+        </VStack>
 
     )
 }

@@ -1,23 +1,30 @@
+import { Box, HStack } from "@chakra-ui/react";
 import Lang from "../../shared/lang";
-import Nullable from "../../shared/undefinable"
 
-export default function Tags({ tags }) {
-    if (!tags) {
-        return <></>
-    }
-    else {
-        return (
-            <>
-                {tags.map(
-                    ({ name }) => {
-                        return (
-                            <span key={name} className=" cursor-default my-1 mx-1 bg-primary text-white px-2 rounded-full">
-                                <Lang>{name}</Lang>
-                            </span>
-                        )
-                    })
-                }
-            </>
-        )
-    }
+export interface ITags {
+    tags: { name: string }[]
+}
+
+export default function Tags({ tags }: ITags) {
+    return (
+        <HStack>
+            {tags.map(({ name }, index) => {
+                return (
+                    <Box
+                        cursor={"pointer"}
+                        key={index}
+                        ml={index !== 0 && "0.25rem"}
+                        mr={"0.25rem"}
+                        px={"0.5rem"}
+                        pb={'0.2rem'}
+                        rounded={"full"}
+                        textColor={"white"}
+                        className="bg-primary"
+                    >
+                        <Lang>{name}</Lang>
+                    </Box>
+                )
+            })}
+        </HStack>
+    )
 }

@@ -1,11 +1,18 @@
-import Link from 'next/link';
+import { Link, Text } from "@chakra-ui/react";
 
 export default function NavButton({ href, text }) {
     return (
         <Link href={href}>
-            <a className="text-white opacity-75 block font-extrabold uppercase hover:opacity-100 focus:opacity-100 hover:text-white focus:text-white my-3">
+            <Text
+                textColor={'white'}
+                opacity={'0.75'}
+                fontWeight={'extrabold'}
+                textTransform={'uppercase'}
+                my={'0.75rem'}
+                _hover={{ opacity: '1', textColor: 'white' }}
+                _focus={{ opacity: '1', textColor: 'white' }}>
                 {text}
-            </a>
+            </Text>
         </Link>
     )
 }
