@@ -33,6 +33,7 @@ SANITY_STUDIO_API_DATASET=
 These environment variables specify the values that Next and Sanity will
 use to pull data from the Sanity API. You can get or create the tokens, ids, and secrets from [manage.sanity.io](https://manage.sanity.io).
 
+For more details see Sanity's [Getting Started](https://www.sanity.io/docs/getting-started) documentation.
 
 ### Running the front-end, in dev
 
