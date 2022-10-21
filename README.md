@@ -30,11 +30,11 @@ SANITY_STUDIO_API_PROJECT_ID=
 SANITY_STUDIO_API_DATASET=
 ```
 
-These environment variables specify the value that Next and Sanity will
+These environment variables specify the values that Next and Sanity will
 use to pull data from the Sanity API. You can get or create the tokens, ids, and secrets from [manage.sanity.io](https://manage.sanity.io).
 
 
-### Running the front-end
+### Running the front-end, in dev
 
 Once you have installed and configured the project, you can run 
 the project as follows:
