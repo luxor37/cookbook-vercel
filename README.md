@@ -11,14 +11,14 @@ This is a demo of how to add a simple comment section to blog post using [Next.j
 
 In the project folder:
 
-```
+```sh
 npm install --legacy-peer-deps
 ```
 
 Create a `.env` file with the following contents, filling the values
 as appropriate:
 
-```
+```sh
 NEXT_PUBLIC_SANITY_PROJECT_ID=
 NEXT_PUBLIC_SANITY_DATASET=
 SANITY_API_TOKEN=
@@ -39,11 +39,15 @@ use to pull data from the Sanity API. You can get or create the tokens, ids, and
 Once you have installed and configured the project, you can run 
 the project as follows:
 
-```bash
-# Run the frontend
-npm run dev
+#### Run the frontend
 
-# Run the Studio
+```sh
+npm run dev
+```
+
+#### Run the Studio
+
+```sh
 npm run start:sanity
 ```
 
