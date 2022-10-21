@@ -10,7 +10,7 @@ Rename the `.env.test` file to `.env` and store the environment variables that N
 Once those env variables are ready, you can run the following commands to get Next's development server up and running:
 
 ```bash
-npm install
+npm install [--legacy-peer-deps]
 
 # Run the frontend
 npm run dev
